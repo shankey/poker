@@ -1,0 +1,36 @@
+server.port = 3000
+
+pokerwars.bot.username= shankey
+pokerwars.bot.token: iEMShPnbjVWYwPtBAMSPCxFV9EVPr9Kn
+# make sure your bot can be seen from external at the IP and port you specify below, so pokerwars.io can talk to him/her.
+# this is an useful service to double check this: http://canyouseeme.org/ . Bot default port is `3000`, but you can change this just above in this file
+
+# options are ALWAYS_FOLD, ALWAYS_CALL or RANDOM, implement your own strategy!
+# to activate the parametrised bot, use type CARD_BASED
+pokerwars.bot.endpoint.strategy.type = CARD_BASED
+pokerwars.bot.endpoint.strategy.aggressiveness = 3
+pokerwars.bot.endpoint.strategy.bluff = 1
+pokerwars.bot.endpoint.strategy.raise-factor = 2
+# pokerwars can send you notifications to know how your bot is doing
+pokerwars.bot.endpoint.notifications = true
+pokerwars.server = https://play.pokerwars.io
+
+logging.file = logs/pokerwars.io-starterbot-java.log
+logging.level.io.pokerwars = info
+
+spring.jackson.mapper.ACCEPT_CASE_INSENSITIVE_PROPERTIES = true
+spring.jackson.mapper.ACCEPT_CASE_INSENSITIVE_ENUMS = true
+spring.jackson.deserialization.FAIL_ON_UNKNOWN_PROPERTIES = false
+
+spring.jackson.datasource.driverClassName = com.mysql.cj.jdbc.Driver
+spring.jackson.datasource.url = jdbc:mysql://localhost:3306/poker
+username: root
+password:
+#        autoconfigure:
+#                exclude: org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
+jpa:
+hibernate:
+ddlAuto: update
+databasePlatform: org.hibernate.dialect.MySQL5Dialect
+generateDdl: true
+ddlAuto: update
