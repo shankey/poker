@@ -16,6 +16,9 @@ import static java.util.Arrays.asList;
 
 import io.pokerwars.bot.model.in.Card;
 import io.pokerwars.bot.model.in.Card.Rank;
+import io.pokerwars.bot.model.out.Player;
+import io.pokerwars.simultor.Table;
+
 import java.util.List;
 import java.util.Set;
 import java.util.function.Predicate;
@@ -302,5 +305,13 @@ public enum HandStrength {
   protected abstract int compare(final PlayerHand playerHand1, final PlayerHand playerHand2);
 
   protected abstract int getHandValue();
+
+  public int compareHandStrength(Player a, Player o){
+    int val = o.getHandStrength().getHandValue() - this.getHandValue();
+    if(val==0){
+      return compare(o.getPlayerHand(), a.getPlayerHand());
+    }
+    return val;
+  }
 
 }

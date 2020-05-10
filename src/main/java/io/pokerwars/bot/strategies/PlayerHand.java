@@ -9,10 +9,15 @@ public class PlayerHand {
 
   private final Set<Card> cards = new HashSet<>();
 
+  public PlayerHand(){
+
+  }
+
   public PlayerHand(final Set<Card> handCards, final Set<Card> tableCards) {
     cards.addAll(handCards);
     cards.addAll(tableCards);
   }
+
 
   public Set<Card> getCards() {
     return cards;

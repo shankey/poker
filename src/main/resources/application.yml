@@ -3,11 +3,11 @@ server:
 
 pokerwars:
     bot:
-        username: your-username
-        token: your-token
+        username: shankey
+        token: iEMShPnbjVWYwPtBAMSPCxFV9EVPr9Kn
         # make sure your bot can be seen from external at the IP and port you specify below, so pokerwars.io can talk to him/her.
         # this is an useful service to double check this: http://canyouseeme.org/ . Bot default port is `3000`, but you can change this just above in this file
-        endpoint: your-endpoint
+        endpoint:
         # options are ALWAYS_FOLD, ALWAYS_CALL or RANDOM, implement your own strategy!
         # to activate the parametrised bot, use type CARD_BASED
         strategy:
@@ -31,3 +31,15 @@ spring:
             ACCEPT_CASE_INSENSITIVE_ENUMS: true
         deserialization:
             FAIL_ON_UNKNOWN_PROPERTIES: false
+    datasource:
+        driverClassName: com.mysql.cj.jdbc.Driver
+        url: jdbc:mysql://localhost:3306/poker
+        username: root
+        password:
+#        autoconfigure:
+#                exclude: org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
+    jpa:
+        hibernate:
+#            ddlAuto: update
+            databasePlatform: org.hibernate.dialect.MySQL5Dialect
+#            generateDdl: true
